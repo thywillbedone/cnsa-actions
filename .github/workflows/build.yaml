@@ -17,7 +17,6 @@ jobs:
 
     - name: Install dependencies 
       run: npm install
-
     - name: Build Antora project 
       run: |
         cp -R node_modules/@antora/lunr-extension/supplemental_ui/* supplemental-ui/ 
