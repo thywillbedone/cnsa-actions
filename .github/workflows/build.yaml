@@ -25,6 +25,6 @@ jobs:
 
     #Uploads the generated site
       - uses: actions/upload-artifact@v3
-      with:
-      name: antora-docs
-      path: docs/
+        with:
+          name: antora-docs
+          path: docs/
