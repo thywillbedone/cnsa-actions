@@ -14,17 +14,13 @@ jobs:
     container: node:16-alpine 
     steps:
     - uses: actions/checkout@v2
-
     - name: Install dependencies 
       run: npm install
-      
     - name: Build Antora project 
       run: |
         cp -R node_modules/@antora/lunr-extension/supplemental_ui/* supplemental-ui/ 
         npx antora local-antora-playbook.yml --fetch 
-
-    #Uploads the generated site
-      - uses: actions/upload-artifact@v3
-        with:
-          name: antora-docs
-          path: docs/
+    - uses: actions/upload-artifact@v3
+      with:
+        name: antora-docs
+        path: docs/
