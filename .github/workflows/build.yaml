@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     container: node:16-alpine 
     steps:
+    - name: Install git and rsync 📚
+      run: |
+        apk update && apk add git rsync
     - uses: actions/checkout@v2
     - name: Install dependencies 
       run: npm install
@@ -24,3 +27,9 @@ jobs:
       with:
         name: antora-docs
         path: docs/
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4.2.5
+      with:
+        branch: gh-pages 
+        folder: docs 
+        clean: true
